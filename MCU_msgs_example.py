@@ -25,4 +25,7 @@ while True:
     if ser.in_waiting:
         esp_msgs.decode_buffer2msg(val_byte=ser.read(1))
         if esp_msgs.status:
-            print(esp_msgs.get_msgs(0), esp_msgs.get_msgs(1), esp_msgs.get_msgs(2))
+            a = esp_msgs.get_msgs(0)
+            b = esp_msgs.get_msgs(1)
+            c = esp_msgs.get_msgs(2)
+            print(a, b, c)
