@@ -31,7 +31,8 @@ class mcu_msgs:
         tx_buff.append(checksum)
         return tx_buff
 
-    def decode_buffer2msg(self, val: int):
+    def decode_buffer2msg(self, val_byte: bytes):
+        val = int.from_bytes(val_byte, "big")
         if self.state == "header":
             self.status = False
             if val == self.header: self.state = "recieve"; self.counter = 0; self.checksum = 0

@@ -23,7 +23,6 @@ while True:
         ser.write(bytearray(ser_msgs.encode_msg2buffer()))
 
     if ser.in_waiting:
-        val = int.from_bytes(ser.read(1), "big")
-        esp_msgs.decode_buffer2msg(val=val)
+        esp_msgs.decode_buffer2msg(val_byte=ser.read(1))
         if esp_msgs.status:
             print(esp_msgs.get_msgs(0), esp_msgs.get_msgs(1), esp_msgs.get_msgs(2))
