@@ -51,7 +51,7 @@ class mcu_msgs:
     def get_msgs(self, index: int):
         msgs = msgs_convert()
         msgs.u8[:] = [self.buff[i] for i in range((index * 8), ((index + 1) * 8))]
-        return msgs.f64
+        return float(msgs.f64)
     
     def assign_msgs(self, index: int, msg_f64: c_double):
         msgs = msgs_convert()
